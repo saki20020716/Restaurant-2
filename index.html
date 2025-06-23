@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Restaurant</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="img/res.png" rel="icon">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="css/fontAwesome.css">
+  <link rel="stylesheet" href="css/hero-slider.css">
+  <link rel="stylesheet" href="css/owl-carousel.css">
+  <link rel="stylesheet" href="css/templatemo-style.css">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Spectral:400,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,500,700" rel="stylesheet">
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <title>Restaurant</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="img/res.png" rel="icon" />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,500,700" rel="stylesheet" />
+
+  <style>
+    /* Reset and Base Styles */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+    }
+
+    /* Header Styles */
+    .header {
+      background-color: #fff;
+      padding: 15px 0;
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      transition: all 0.3s ease;
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center; /* FIXED HERE */
+    }
+
+    /* Logo */
+    .logo-wrapper {
+      display: flex;
+      align-items: left;
+    }
+
+    .logo {
+      height: 80px;
+      width: auto;
+      transition: all 0.3s ease;
+    }
+
+    /* Navigation */
+    .nav-wrapper {
+      display: flex;
+      align-items: left;
+    }
+
+    .navbar-nav {
+      display: flex;
+    }
+
+    .nav-list {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      gap: 30px;
+    }
+
+    .nav-list li a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 600;
+      font-size: 16px;
+      padding: 8px 12px;
+      border-radius: 4px;
+      transition: 0.3s;
+    }
+
+    .nav-list li a:hover {
+      background-color: #f7b716;
+      color: #fff;
+    }
+
+    .nav-list li a.active {
+      background-color: #f7b716;
+      color: #fff;
+    }
+
+    /* Mobile Toggle */
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 26px;
+      color: #333;
+      cursor: pointer;
+      margin-left: 15px;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
+
+      .navbar-nav {
+        position: absolute;
+        top: 90px;
+        right: 0;
+        background-color: #fff;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 0;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        transform: translateY(-200%);
+        opacity: 0;
+        transition: 0.4s ease;
+      }
+
+      .navbar-nav.active {
+        transform: translateY(0);
+        opacity: 1;
+      }
+
+      .nav-list {
+        flex-direction: column;
+        gap: 26px;
+      }
+
+      .nav-list li a {
+        padding: 22px 20px;
+        width: 100%;
+        text-align: center;
+        border-radius: 0;
+      }
+
+      .logo {
+        height: 60px;
+      }
+    }
+
+    /* Header shrink on scroll */
+    .header.scrolled {
+      padding: 10px 0;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .header.scrolled .logo {
+      height: 50px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header -->
+  <header class="header" id="header">
+    <div class="nav-container">
+      <!-- Logo -->
+      <div class="logo-wrapper">
+        <img src="img/1001659438.png" class="logo" alt="Restaurant Logo" />
+      </div>
+
+      <!-- Navigation -->
+      <div class="nav-wrapper">
+        <nav id="main-nav" class="navbar-nav">
+          <ul class="nav-list" id="nav-list">
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+        <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- JavaScript -->
+  <script>
+    const toggle = document.getElementById('menu-toggle');
+    const nav = document.getElementById('main-nav');
+    const navLinks = document.querySelectorAll('.nav-list li a');
+
+    toggle.addEventListener('click', () => {
+      nav.classList.toggle('active');
+      toggle.textContent = nav.classList.contains('active') ? '✕' : '☰';
+    });
+
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        if (window.innerWidth <= 768) {
+          nav.classList.remove('active');
+          toggle.textContent = '☰';
+        }
+      });
+    });
+
+    // Highlight active page
+    const currentPage = window.location.pathname.split('/').pop();
+    navLinks.forEach(link => {
+      if (link.getAttribute('href') === currentPage) {
+        link.classList.add('active');
+      } else {
+        link.classList.remove('active');
+      }
+    });
+
+    // Shrink header on scroll
+    window.addEventListener('scroll', () => {
+      const header = document.getElementById('header');
+      header.classList.toggle('scrolled', window.scrollY > 50);
+    });
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
+  <!--/.header-->
+  <section class="banner" style="padding: 90px 0; background-color: #222;">
+    <div class="container">
+      <div class="row justify-content-start">
+
+        <!-- Full Left-aligned Column -->
+        <div class="col-md-8">
+
+          <!-- Heading on Top -->
+          <h2 style="
+          color: #ffffff;
+          font-size: 48px;
+          font-weight: 800;
+          text-shadow: 6px 6px 8px rgba(0, 0, 0, 0.7);
+          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+          text-align: left;
+        ">
+            K&P Restaurant
+          </h2>
+
+          <!-- Paragraph Below -->
+          <p style="
+          color: #ffffff;
+          font-size: 18px;
+          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+          line-height: 1.8;
+          background-color: rgba(0, 0, 0, 0.586);
+          padding: 20px;
+          border-radius: 50px;
+          text-align: justify;
+          margin-top: 20px;
+        ">
+            A restaurant is a place where people go to eat meals that are prepared and served by staff. Restaurants
+            offer a variety of food and drink options, and they can range from small, casual eateries to large,
+            fine-dining establishments. Customers typically order from a menu and either dine in or take the food to go.
+            Restaurants can specialize in different cuisines such as Italian, Chinese, Indian, or fast food.
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+
+
+  <section class="services">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 col-sm-4 col-xs-12">
+          <div class="service-item">
+            <a href="break.html">
+              <img src="img/cook_breakfast.png" alt="Breakfast">
+              <h4>Breakfast</h4>
+            </a>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-4 col-xs-12">
+          <div class="service-item">
+            <a href="lunch.html">
+              <img src="img/cook_lunch.png" alt="Lunch">
+              <h4>Lunch</h4>
+            </a>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-4 col-xs-12">
+          <div class="service-item">
+            <a href="Dinner.html">
+              <img src="img/cook_dinner.png" alt="Dinner">
+              <h4>Dinner</h4>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+
+
+
+
+
+
+  <!-- Swiper CSS -->
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+<section class="featured-food">
+  <div class="container">
+    <div class="heading">
+      <h2 style="text-align:center; margin-bottom: 30px;">Weekly Featured Food</h2>
+    </div>
+
+    <!-- Swiper Container -->
+    <div class="swiper mySwiper">
+      <!-- Navigation Arrows -->
+      <div class="swiper-button-prev"></div>
+
+      <div class="swiper-wrapper">
+        <!-- Slide 1 -->
+        <div class="swiper-slide">
+          <div class="food-item">
+            <h2>Snacks</h2>
+            <img src="img/breakfast_item.jpg" alt="">
+            <div class="food_price">Rs. 300</div>
+          </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="swiper-slide">
+          <div class="food-item">
+            <h2>Dessert</h2>
+            <img src="img/cook_dessert.png" alt="">
+            <div class="food_price">Rs. 500</div>
+          </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="swiper-slide">
+          <div class="food-item">
+            <h2>Chicken Rice</h2>
+            <img src="img/dinner_item.jpg" alt="">
+            <div class="food_price">Rs. 800</div>
+          </div>
+        </div>
+
+        <!-- Slide 4 -->
+        <div class="swiper-slide">
+          <div class="food-item">
+            <h2>Chocolate Fudge</h2>
+            <img src="img/Chocolate Fudge.jpg" alt="">
+            <div class="food_price">Rs. 100</div>
+          </div>
+        </div>
+
+        <!-- Slide 5 -->
+        <div class="swiper-slide">
+          <div class="food-item">
+            <h2>Strawberry Swirl</h2>
+            <img src="img/Strawberry Swirl.jpg" alt="">
+            <div class="food_price">Rs. 250</div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="food-item">
+            <h2>Mint Choco Chip</h2>
+            <img src="img/Mint Choco Chip.jpg" alt="">
+            <div class="food_price">Rs. 350</div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="food-item">
+            <h2>Fresh Orange Juice</h2>
+            <img src="img/Fresh Orange Juice.jpg" alt="">
+            <div class="food_price">Rs. 200</div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="food-item">
+            <h2>Pineapple Punch</h2>
+            <img src="img/Pineapple Punch.webp" alt="">
+            <div class="food_price">Rs. 300</div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="food-item">
+            <h2>Apple Cooler</h2>
+            <img src="img/Apple Cooler.jpg" alt="">
+            <div class="food_price">Rs. 350</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="swiper-button-next"></div>
+    </div>
+  </div>
+</section>
+
+<!-- Swiper JS -->
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script>
+  const swiper = new Swiper(".mySwiper", {
+    slidesPerView: 3,           // Show 3 images at once
+    spaceBetween: 30,
+    slidesPerGroup: 3,          // Move 3 at a time
+    loop: true,
+    loopFillGroupWithBlank: true,
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev"
+    },
+    breakpoints: {
+      0: {
+        slidesPerView: 1,
+        slidesPerGroup: 1
+      },
+      768: {
+        slidesPerView: 2,
+        slidesPerGroup: 2
+      },
+      992: {
+        slidesPerView: 3,
+        slidesPerGroup: 3
+      }
+    }
+  });
+</script>
+
+<style>
+.swiper {
+  width: 100%;
+  padding-bottom: 40px;
+  position: relative;
+}
+
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+}
+
+.food-item {
+  width: 100%;
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.food-item img {
+  max-width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.food_price {
+  margin-top: 10px;
+  color: green;
+  font-weight: bold;
+}
+
+/* Swiper arrows */
+.swiper-button-prev,
+.swiper-button-next {
+  background-color: #333;
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 40%;
+  transform: translateY(-50%);
+  z-index: 10;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+}
+
+.swiper-button-prev {
+  left: -20px;
+}
+
+.swiper-button-next {
+  right: -20px;
+}
+
+.swiper-button-prev::after {
+  content: '\276E';
+  font-size: 18px;
+  color: white;
+}
+
+.swiper-button-next::after {
+  content: '\276F';
+  font-size: 18px;
+  color: white;
+}
+
+/* Mobile adjust */
+@media (max-width: 600px) {
+  .swiper-button-prev {
+    left: -10px;
+  }
+
+  .swiper-button-next {
+    right: -10px;
+  }
+
+  .food-item img {
+    height: 150px;
+  }
+}
+</style>
+
+
+
+
+
+
+
+
+
+  <!-- Footer Section -->
+  <div
+    style="width: 100%; background-color: rgb(4, 11, 70); padding: 40px 20px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+    <div
+      style="max-width: 1200px; margin: auto; display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; color: white; text-align: center;">
+
+      <!-- Menu -->
+      <div style="flex: 1 1 250px; min-width: 200px;">
+        <h3 style="margin-bottom: 10px;">Menu</h3>
+        <ul style="list-style: none; padding-left: 0; font-size: 14px; line-height: 2;">
+          <li><a href="index.html" style="color: #ccc; text-decoration: none;">Home</a></li>
+         
+          <li><a href="contact.html" style="color: #ccc; text-decoration: none;">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- About (Centered) -->
+      <div style="flex: 1 1 300px; min-width: 250px;">
+        <h3 style="margin-bottom: 10px;">About</h3>
+        <p style="color: #ccc; font-size: 14px; line-height: 1.6;">
+          A restaurant is a place where people go to enjoy prepared food and drinks. It offers a menu with various
+          dishes and provides a comfortable space for dining with family or friends.
+        </p>
+      </div>
+
+      <!-- Contact -->
+      <div style="flex: 1 1 250px; min-width: 200px;">
+        <h3 style="margin-bottom: 10px;">Contact Us</h3>
+        <ul style="list-style: none; padding-left: 0; font-size: 14px; line-height: 2;">
+          <li>
+            <a href="#" style="color: #ccc; text-decoration: none;">
+              <i class="fa fa-map-marker" aria-hidden="true"></i>
+              <span style="padding-left: 8px;">Pallai town, Pallai</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" style="color: #ccc; text-decoration: none;">
+              <i class="fa fa-phone" aria-hidden="true"></i>
+              <span style="padding-left: 8px;">+94 0742358478</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" style="color: #ccc; text-decoration: none;">
+              <i class="fa fa-envelope" aria-hidden="true"></i>
+              <span style="padding-left: 8px;">shana@gmail.com</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Copyright -->
+    <div
+      style="text-align: center; padding: 20px 0; border-top: 1px solid #555; color: #aaa; font-size: 13px; margin-top: 30px;">
+      &copy; 2025 Restaurant. All rights reserved. Design By WEBbuilders.lk
+    </div>
+  </div>
+  <!-- footer section end -->
+
+
+
+
+
+
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
+
+  <script src="js/vendor/bootstrap.min.js"></script>
+
+  <script src="js/plugins.js"></script>
+  <script src="js/main.js"></script>
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      // navigation click actions 
+      $('.scroll-link').on('click', function (event) {
+        event.preventDefault();
+        var sectionID = $(this).attr("data-id");
+        scrollToID('#' + sectionID, 750);
+      });
+      // scroll to top action
+      $('.scroll-top').on('click', function (event) {
+        event.preventDefault();
+        $('html, body').animate({ scrollTop: 0 }, 'slow');
+      });
+      // mobile nav toggle
+      $('#nav-toggle').on('click', function (event) {
+        event.preventDefault();
+        $('#main-nav').toggleClass("open");
+      });
+    });
+    // scroll function
+    function scrollToID(id, speed) {
+      var offSet = 0;
+      var targetOffset = $(id).offset().top - offSet;
+      var mainNav = $('#main-nav');
+      $('html,body').animate({ scrollTop: targetOffset }, speed);
+      if (mainNav.hasClass("open")) {
+        mainNav.css("height", "1px").removeClass("in").addClass("collapse");
+        mainNav.removeClass("open");
+      }
+    }
+    if (typeof console === "undefined") {
+      console = {
+        log: function () { }
+      };
+    }
+  </script>
+</body>
+
+</html>

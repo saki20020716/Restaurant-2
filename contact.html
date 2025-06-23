@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <!--
+Victory HTML CSS Template
+https://templatemo.com/tm-507-victory
+-->
+    <title>Restaurant</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link href="img/res.png" rel="icon">
+
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="css/fontAwesome.css">
+    <link rel="stylesheet" href="css/hero-slider.css">
+    <link rel="stylesheet" href="css/owl-carousel.css">
+    <link rel="stylesheet" href="css/templatemo-style.css">
+
+    <link
+        href="https://fonts.googleapis.com/css?family=Spectral:200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+
+    <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+</head>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <title>Restaurant</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="img/res.png" rel="icon" />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,500,700" rel="stylesheet" />
+
+  <style>
+    /* Reset and Base Styles */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+    }
+
+    /* Header Styles */
+    .header {
+      background-color: #fff;
+      padding: 15px 0;
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      transition: all 0.3s ease;
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center; /* FIXED HERE */
+    }
+
+    /* Logo */
+    .logo-wrapper {
+      display: flex;
+      align-items: left;
+    }
+
+    .logo {
+      height: 80px;
+      width: auto;
+      transition: all 0.3s ease;
+    }
+
+    /* Navigation */
+    .nav-wrapper {
+      display: flex;
+      align-items: left;
+    }
+
+    .navbar-nav {
+      display: flex;
+    }
+
+    .nav-list {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      gap: 30px;
+    }
+
+    .nav-list li a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 600;
+      font-size: 16px;
+      padding: 8px 12px;
+      border-radius: 4px;
+      transition: 0.3s;
+    }
+
+    .nav-list li a:hover {
+      background-color: #f7b716;
+      color: #fff;
+    }
+
+    .nav-list li a.active {
+      background-color: #f7b716;
+      color: #fff;
+    }
+
+    /* Mobile Toggle */
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 26px;
+      color: #333;
+      cursor: pointer;
+      margin-left: 15px;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
+
+      .navbar-nav {
+        position: absolute;
+        top: 90px;
+        right: 0;
+        background-color: #fff;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 0;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        transform: translateY(-200%);
+        opacity: 0;
+        transition: 0.4s ease;
+      }
+
+      .navbar-nav.active {
+        transform: translateY(0);
+        opacity: 1;
+      }
+
+      .nav-list {
+        flex-direction: column;
+        gap: 26px;
+      }
+
+      .nav-list li a {
+        padding: 22px 20px;
+        width: 100%;
+        text-align: center;
+        border-radius: 0;
+      }
+
+      .logo {
+        height: 60px;
+      }
+    }
+
+    /* Header shrink on scroll */
+    .header.scrolled {
+      padding: 10px 0;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .header.scrolled .logo {
+      height: 50px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header -->
+  <header class="header" id="header">
+    <div class="nav-container">
+      <!-- Logo -->
+      <div class="logo-wrapper">
+        <img src="img/1001659438.png" class="logo" alt="Restaurant Logo" />
+      </div>
+      <!-- Navigation -->
+      <div class="nav-wrapper">
+        <nav id="main-nav" class="navbar-nav">
+          <ul class="nav-list" id="nav-list">
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+        <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- JavaScript -->
+  <script>
+    const toggle = document.getElementById('menu-toggle');
+    const nav = document.getElementById('main-nav');
+    const navLinks = document.querySelectorAll('.nav-list li a');
+
+    toggle.addEventListener('click', () => {
+      nav.classList.toggle('active');
+      toggle.textContent = nav.classList.contains('active') ? '✕' : '☰';
+    });
+
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        if (window.innerWidth <= 768) {
+          nav.classList.remove('active');
+          toggle.textContent = '☰';
+        }
+      });
+    });
+
+    // Highlight active page
+    const currentPage = window.location.pathname.split('/').pop();
+    navLinks.forEach(link => {
+      if (link.getAttribute('href') === currentPage) {
+        link.classList.add('active');
+      } else {
+        link.classList.remove('active');
+      }
+    });
+
+    // Shrink header on scroll
+    window.addEventListener('scroll', () => {
+      const header = document.getElementById('header');
+      header.classList.toggle('scrolled', window.scrollY > 50);
+    });
+  </script>
+</body>
+</html>
+    <!--/.header-->
+
+    <section class="page-heading" style="padding: 90px 0;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div
+                        style="background: rgba(255, 255, 255, 0.2); padding: 20px; border-radius: 15px; text-align: center;">
+                        <h1 style="
+                            color: #fff;
+                            font-size: 42px;
+                            font-weight: 700;
+                            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+                            margin: 0;
+                            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                        ">
+                            Contact Us
+                        </h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+    <section class="contact-us">
+        <div class="container">
+           
+                   <div class="row">
+                             
+                            <div class="col-md-6">
+                    <form id="contact" action="" method="post">
+                       
+                                 <div class="section-heading">
+                        <h2>Message</h2>
+                    </div>
+                                <fieldset>
+                                    <input name="name" type="text" class="form-control" id="name"
+                                        placeholder="Your name..." required="">
+                                </fieldset>
+                                <fieldset>
+                                    <input name="email" type="text" class="form-control" id="email"
+                                        placeholder="Your email..." required="">
+                                </fieldset>
+                                <fieldset>
+                                    <input name="phone" type="text" class="form-control" id="phone"
+                                        placeholder="Your phone..." required="">
+                                </fieldset>
+                                <fieldset>
+                                    <textarea name="message" rows="6" class="form-control" id="message"
+                                        placeholder="Your message..." required=""></textarea>
+                                </fieldset>
+                                <fieldset>
+                                    <button type="submit" id="form-submit" class="btn">Send Message</button>
+                                </fieldset>
+                            </div>
+                             <div class="col-md-6">
+                <div class="cs-map">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d52901.38789495531!2d-118.19465514866786!3d34.03523211493029!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2cf71ad83ff9f%3A0x518b28657f4543b7!2sEast%20Los%20Angeles%2C%20CA%2C%20USA!5e0!3m2!1sen!2sbd!4v1579763856144!5m2!1sen!2sbd"
+                        height="400" style="border:0;" allowfullscreen=""></iframe>
+                </div>
+            </div>
+                        </div>
+               
+                </form>
+            </div>
+           
+
+        
+        </div>
+    </section>
+
+
+
+
+
+    <!-- Footer Section -->
+    <div
+        style="width: 100%; background-color: rgb(4, 11, 70); padding: 40px 20px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+        <div
+            style="max-width: 1200px; margin: auto; display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; color: white; text-align: center;">
+
+            <!-- Menu -->
+            <div style="flex: 1 1 250px; min-width: 200px;">
+                <h3 style="margin-bottom: 10px;">Menu</h3>
+                <ul style="list-style: none; padding-left: 0; font-size: 14px; line-height: 2;">
+                    <li><a href="index.html" style="color: #ccc; text-decoration: none;">Home</a></li>
+                    
+                    <li><a href="contact.html" style="color: #ccc; text-decoration: none;">Contact</a></li>
+                </ul>
+            </div>
+
+            <!-- About (Centered) -->
+            <div style="flex: 1 1 300px; min-width: 250px;">
+                <h3 style="margin-bottom: 10px;">About</h3>
+                <p style="color: #ccc; font-size: 14px; line-height: 1.6;">
+                    A restaurant is a place where people go to enjoy prepared food and drinks. It offers a menu with
+                    various dishes and provides a comfortable space for dining with family or friends.
+                </p>
+            </div>
+
+            <!-- Contact -->
+            <div style="flex: 1 1 250px; min-width: 200px;">
+                <h3 style="margin-bottom: 10px;">Contact Us</h3>
+                <ul style="list-style: none; padding-left: 0; font-size: 14px; line-height: 2;">
+                    <li>
+                        <a href="#" style="color: #ccc; text-decoration: none;">
+                            <i class="fa fa-map-marker" aria-hidden="true"></i>
+                            <span style="padding-left: 8px;">Pallai town, Pallai</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" style="color: #ccc; text-decoration: none;">
+                            <i class="fa fa-phone" aria-hidden="true"></i>
+                            <span style="padding-left: 8px;">+94 0742358478</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" style="color: #ccc; text-decoration: none;">
+                            <i class="fa fa-envelope" aria-hidden="true"></i>
+                            <span style="padding-left: 8px;">shana@gmail.com</span> 
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Copyright -->
+        <div
+            style="text-align: center; padding: 20px 0; border-top: 1px solid #555; color: #aaa; font-size: 13px; margin-top: 30px;">
+            &copy; 2025 Restaurant. All rights reserved.Design By WEBbuilders.lk
+        </div>
+    </div>
+    <!-- footer section end -->
+
+
+
+
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
+
+    <script src="js/vendor/bootstrap.min.js"></script>
+
+    <script src="js/plugins.js"></script>
+    <script src="js/main.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            // navigation click actions 
+            $('.scroll-link').on('click', function (event) {
+                event.preventDefault();
+                var sectionID = $(this).attr("data-id");
+                scrollToID('#' + sectionID, 750);
+            });
+            // scroll to top action
+            $('.scroll-top').on('click', function (event) {
+                event.preventDefault();
+                $('html, body').animate({ scrollTop: 0 }, 'slow');
+            });
+            // mobile nav toggle
+            $('#nav-toggle').on('click', function (event) {
+                event.preventDefault();
+                $('#main-nav').toggleClass("open");
+            });
+        });
+        // scroll function
+        function scrollToID(id, speed) {
+            var offSet = 0;
+            var targetOffset = $(id).offset().top - offSet;
+            var mainNav = $('#main-nav');
+            $('html,body').animate({ scrollTop: targetOffset }, speed);
+            if (mainNav.hasClass("open")) {
+                mainNav.css("height", "1px").removeClass("in").addClass("collapse");
+                mainNav.removeClass("open");
+            }
+        }
+        if (typeof console === "undefined") {
+            console = {
+                log: function () { }
+            };
+        }
+    </script>
+</body>
+
+</html>

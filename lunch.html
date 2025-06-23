@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Restaurant</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="img/res.png" rel="icon">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="css/fontAwesome.css">
+    <link rel="stylesheet" href="css/hero-slider.css">
+    <link rel="stylesheet" href="css/owl-carousel.css">
+    <link rel="stylesheet" href="css/templatemo-style.css">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Spectral:400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,500,700" rel="stylesheet">
+
+    <!-- JS for older browsers -->
+    <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <title>Restaurant</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="img/res.png" rel="icon" />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,500,700" rel="stylesheet" />
+
+  <style>
+    /* Reset and Base Styles */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+    }
+
+    /* Header Styles */
+    .header {
+      background-color: #fff;
+      padding: 15px 0;
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      transition: all 0.3s ease;
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center; /* FIXED HERE */
+    }
+
+    /* Logo */
+    .logo-wrapper {
+      display: flex;
+      align-items: left;
+    }
+
+    .logo {
+      height: 80px;
+      width: auto;
+      transition: all 0.3s ease;
+    }
+
+    /* Navigation */
+    .nav-wrapper {
+      display: flex;
+      align-items: left;
+    }
+
+    .navbar-nav {
+      display: flex;
+    }
+
+    .nav-list {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      gap: 30px;
+    }
+
+    .nav-list li a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 600;
+      font-size: 16px;
+      padding: 8px 12px;
+      border-radius: 4px;
+      transition: 0.3s;
+    }
+
+    .nav-list li a:hover {
+      background-color: #f7b716;
+      color: #fff;
+    }
+
+    .nav-list li a.active {
+      background-color: #f7b716;
+      color: #fff;
+    }
+
+    /* Mobile Toggle */
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 26px;
+      color: #333;
+      cursor: pointer;
+      margin-left: 15px;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
+
+      .navbar-nav {
+        position: absolute;
+        top: 90px;
+        right: 0;
+        background-color: #fff;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 0;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        transform: translateY(-200%);
+        opacity: 0;
+        transition: 0.4s ease;
+      }
+
+      .navbar-nav.active {
+        transform: translateY(0);
+        opacity: 1;
+      }
+
+      .nav-list {
+        flex-direction: column;
+        gap: 26px;
+      }
+
+      .nav-list li a {
+        padding: 22px 20px;
+        width: 100%;
+        text-align: center;
+        border-radius: 0;
+      }
+
+      .logo {
+        height: 60px;
+      }
+    }
+
+    /* Header shrink on scroll */
+    .header.scrolled {
+      padding: 10px 0;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .header.scrolled .logo {
+      height: 50px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header -->
+  <header class="header" id="header">
+    <div class="nav-container">
+      <!-- Logo -->
+      <div class="logo-wrapper">
+        <img src="img/1001659438.png" class="logo" alt="Restaurant Logo" />
+      </div>
+
+      <!-- Navigation -->
+      <div class="nav-wrapper">
+        <nav id="main-nav" class="navbar-nav">
+          <ul class="nav-list" id="nav-list">
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+        <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- JavaScript -->
+  <script>
+    const toggle = document.getElementById('menu-toggle');
+    const nav = document.getElementById('main-nav');
+    const navLinks = document.querySelectorAll('.nav-list li a');
+
+    toggle.addEventListener('click', () => {
+      nav.classList.toggle('active');
+      toggle.textContent = nav.classList.contains('active') ? '✕' : '☰';
+    });
+
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        if (window.innerWidth <= 768) {
+          nav.classList.remove('active');
+          toggle.textContent = '☰';
+        }
+      });
+    });
+
+    // Highlight active page
+    const currentPage = window.location.pathname.split('/').pop();
+    navLinks.forEach(link => {
+      if (link.getAttribute('href') === currentPage) {
+        link.classList.add('active');
+      } else {
+        link.classList.remove('active');
+      }
+    });
+
+    // Shrink header on scroll
+    window.addEventListener('scroll', () => {
+      const header = document.getElementById('header');
+      header.classList.toggle('scrolled', window.scrollY > 50);
+    });
+  </script>
+</body>
+</html>
+
+    <!-- Logo Section -->
+ <div class="food_section">
+  <div class="container">
+    <h2 class="food_title">Lunch Foods</h2>
+    <div class="row">
+      <div class="col-lg-4 col-sm-6">
+        <div class="food_box">
+          <div class="food_img">
+            <img src="img/Mutton Varuval.jpg" alt="Egg Breakfast">
+          </div>
+          <div class="food_name">Mutton Varuval</div>
+          <div class="food_price">Rs. 350</div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-sm-6">
+        <div class="food_box">
+          <div class="food_img">
+            <img src="img/White Rice with Chicken Curry.jpg" alt="Pittu and Curry">
+          </div>
+          <div class="food_name">White Rice with Chicken Curry</div>
+          <div class="food_price">Rs. 450</div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-sm-6">
+        <div class="food_box">
+          <div class="food_img">
+            <img src="img/Brinjal Moju.jpg" alt="Milk Rice">
+          </div>
+          <div class="food_name">Brinjal Moju</div>
+          <div class="food_price">Rs. 550</div>
+        </div>
+      </div>
+         <div class="col-lg-4 col-sm-6">
+        <div class="food_box">
+          <div class="food_img">
+            <img src="img/Beef Curry with Coconut Sambol.webp" alt="Milk Rice">
+          </div>
+          <div class="food_name">Beef Curry with Coconut Sambol</div>
+          <div class="food_price">Rs. 650</div>
+        </div>
+      </div>
+         <div class="col-lg-4 col-sm-6">
+        <div class="food_box">
+          <div class="food_img">
+            <img src="img/Fried Rice with Prawns or Seafood.jpg" alt="Milk Rice">
+          </div>
+          <div class="food_name">Fried Rice with Prawns or Seafood</div>
+          <div class="food_price">Rs. 750</div>
+        </div>
+      </div>
+         <div class="col-lg-4 col-sm-6">
+        <div class="food_box">
+          <div class="food_img">
+            <img src="img/Yellow Rice with Devilled Chicken.jpg" alt="Milk Rice">
+          </div>
+          <div class="food_name">Yellow Rice with Devilled Chicken</div>
+          <div class="food_price">Rs. 850</div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+
+           <style>
+.food_section {
+    padding: 60px 0;
+    background-color: #fff8f0;
+}
+
+.food_title {
+    font-size: 32px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 40px;
+    color: #333;
+}
+
+.food_box {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 30px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.food_box:hover {
+    transform: translateY(-5px);
+}
+
+.food_img img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.food_name {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.food_price {
+    font-size: 16px;
+    color: #e67300;
+    font-weight: 500;
+}
+</style>
+
+
+               
+     <div style="width: 100%; background-color: rgb(4, 11, 70); padding: 40px 20px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+    <div style="max-width: 1200px; margin: auto; display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; color: white; text-align: center;">
+
+        <!-- Menu -->
+        <div style="flex: 1 1 250px; min-width: 200px;">
+            <h3 style="margin-bottom: 10px;">Menu</h3>
+            <ul style="list-style: none; padding-left: 0; font-size: 14px; line-height: 2;">
+                <li><a href="index.html" style="color: #ccc; text-decoration: none;">Home</a></li>
+               
+                <li><a href="contact.html" style="color: #ccc; text-decoration: none;">Contact</a></li>
+            </ul>
+        </div>
+
+        <!-- About (Centered) -->
+        <div style="flex: 1 1 300px; min-width: 250px;">
+            <h3 style="margin-bottom: 10px;">About</h3>
+            <p style="color: #ccc; font-size: 14px; line-height: 1.6;">
+                A restaurant is a place where people go to enjoy prepared food and drinks. It offers a menu with various dishes and provides a comfortable space for dining with family or friends.
+            </p>
+        </div>
+
+        <!-- Contact -->
+        <div style="flex: 1 1 250px; min-width: 200px;">
+            <h3 style="margin-bottom: 10px;">Contact Us</h3>
+            <ul style="list-style: none; padding-left: 0; font-size: 14px; line-height: 2;">
+                <li>
+                    <a href="#" style="color: #ccc; text-decoration: none;">
+                        <i class="fa fa-map-marker" aria-hidden="true"></i>
+                        <span style="padding-left: 8px;">Pallai town, Pallai</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" style="color: #ccc; text-decoration: none;">
+                        <i class="fa fa-phone" aria-hidden="true"></i>
+                        <span style="padding-left: 8px;">+94 0742358478</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" style="color: #ccc; text-decoration: none;">
+                        <i class="fa fa-envelope" aria-hidden="true"></i>
+                        <span style="padding-left: 8px;">shana@gmail.com</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Copyright -->
+    <div style="text-align: center; padding: 20px 0; border-top: 1px solid #555; color: #aaa; font-size: 13px; margin-top: 30px;">
+        &copy; 2025 Restaurant. All rights reserved. Design By WEBbuilders.lk
+    </div>
+</div>
+<!-- footer section end -->
